@@ -1,0 +1,12 @@
+const fetch = require("node-fetch");
+
+async function convert(path) {
+		const result = await fetch(
+			`https://jsonplaceholder.typicode.com${path}`
+		);
+		const data = await result.json();
+		return data;
+}
+
+convert('/posts')
+	.then(data => console.log(data));
